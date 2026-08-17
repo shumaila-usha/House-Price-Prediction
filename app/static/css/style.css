@@ -1,0 +1,173 @@
+/* ==========================================
+   AI House Price Prediction
+   Professional Website Styling
+   ========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0b1f3a, #0047ab);
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #333;
+}
+
+/* Main container */
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Main heading */
+
+h1 {
+    text-align: center;
+    color: #0b1f3a;
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+p {
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+/* Section headings */
+
+h2 {
+    color: #0047ab;
+    font-size: 21px;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5edf7;
+}
+
+/* Form layout */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Form fields */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    color: #0b1f3a;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d5dce5;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #f8fafc;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #007bff;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.12);
+}
+
+/* Prediction button */
+
+.button-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+button {
+    background: linear-gradient(135deg, #0047ab, #00a3ff);
+    color: white;
+    border: none;
+    padding: 15px 45px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0, 71, 171, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 71, 171, 0.4);
+}
+
+/* Prediction result */
+
+.prediction {
+    margin-top: 40px;
+    padding: 28px;
+    background: #eef8ff;
+    border: 2px solid #00a3ff;
+    border-radius: 16px;
+    text-align: center;
+    color: #0047ab;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.price {
+    margin-top: 10px;
+    font-size: 32px;
+    color: #0b1f3a;
+}
+
+/* Mobile responsive design */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px 10px;
+    }
+
+    .container {
+        padding: 25px 18px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 19px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        width: 100%;
+    }
+}

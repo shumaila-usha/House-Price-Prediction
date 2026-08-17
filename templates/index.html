@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>AI House Price Prediction</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🏠 AI House Price Prediction</h1>
+
+        <p>
+            Enter the property information below and let our machine learning
+            model estimate the house price.
+        </p>
+
+
+        <form action="/predict" method="POST">
+
+            <!-- =========================
+                 BASIC HOUSE INFORMATION
+                 ========================= -->
+
+            <h2>🏡 Basic House Information</h2>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>MS Sub Class</label>
+                    <input type="number" name="MSSubClass" value="60" required>
+                </div>
+
+                <div class="form-group">
+                    <label>MS Zoning</label>
+                    <input type="text" name="MSZoning" value="RL" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Neighborhood</label>
+                    <input type="text" name="Neighborhood" value="CollgCr" required>
+                </div>
+
+                <div class="form-group">
+                    <label>House Style</label>
+                    <input type="text" name="HouseStyle" value="2Story" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Building Type</label>
+                    <input type="text" name="BldgType" value="1Fam" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Overall Quality</label>
+                    <input type="number" name="OverallQual" value="7" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Overall Condition</label>
+                    <input type="number" name="OverallCond" value="5" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Year Built</label>
+                    <input type="number" name="YearBuilt" value="2003" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Year Remodeled</label>
+                    <input type="number" name="YearRemodAdd" value="2003" required>
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 PROPERTY DETAILS
+                 ========================= -->
+
+            <h2>📐 Property Details</h2>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Lot Frontage</label>
+                    <input type="number" name="LotFrontage" value="65" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Lot Area</label>
+                    <input type="number" name="LotArea" value="8450" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Street</label>
+                    <input type="text" name="Street" value="Pave" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Lot Shape</label>
+                    <input type="text" name="LotShape" value="Reg" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Land Contour</label>
+                    <input type="text" name="LandContour" value="Lvl" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Utilities</label>
+                    <input type="text" name="Utilities" value="AllPub" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Lot Configuration</label>
+                    <input type="text" name="LotConfig" value="Inside" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Land Slope</label>
+                    <input type="text" name="LandSlope" value="Gtl" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Condition 1</label>
+                    <input type="text" name="Condition1" value="Norm" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Condition 2</label>
+                    <input type="text" name="Condition2" value="Norm" required>
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 ROOMS & LIVING AREA
+                 ========================= -->
+
+            <h2>🛏️ Rooms & Living Area</h2>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Living Area (sq ft)</label>
+                    <input type="number" name="GrLivArea" value="1710" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Bedrooms</label>
+                    <input type="number" name="BedroomAbvGr" value="3" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Full Bathrooms</label>
+                    <input type="number" name="FullBath" value="2" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Half Bathrooms</label>
+                    <input type="number" name="HalfBath" value="1" required>
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 GARAGE INFORMATION
+                 ========================= -->
+
+            <h2>🚗 Garage Information</h2>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label>Garage Cars</label>
+                    <input type="number" name="GarageCars" value="2" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Garage Area (sq ft)</label>
+                    <input type="number" name="GarageArea" value="548" required>
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 PREDICT BUTTON
+                 ========================= -->
+
+            <div class="button-area">
+
+                <button type="submit">
+                    🔮 Predict House Price
+                </button>
+
+            </div>
+
+        </form>
+
+
+        <!-- =========================
+             PREDICTION RESULT
+             ========================= -->
+
+        {% if prediction %}
+
+        <div class="prediction">
+
+            💰 Predicted House Price
+
+            <div class="price">
+                {{ prediction }}
+            </div>
+
+        </div>
+
+        {% endif %}
+
+
+    </div>
+
+</body>
+
+</html>
